@@ -1,0 +1,19 @@
+p{
+    color:green
+}
+a{
+    text-decoration: none;
+}
+th{
+    color:brown
+}
+table,th,td{
+    border: 2px solid black;
+}
+#id1{
+    background-color: aqua;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+img{
+    border-radius: 100%;
+}

@@ -1,0 +1,21 @@
+h1{
+    color:blue
+}
+h2{
+    color:slateblue
+}
+h3{
+    color:brown
+}
+div{
+    border-left: 5px solid green;
+    height: 650px;
+    position: absolute;
+    left: 30%;
+    margin-left: -50px;
+    top: 0
+}
+
+img{
+    border-radius: 100%;
+}
