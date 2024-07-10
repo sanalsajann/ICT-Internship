@@ -1,67 +1,50 @@
 import React, { useState } from 'react';
-import { TextField, Button, Box } from '@mui/material';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
-function Add() {
-  const [formData, setFormData] = useState({
-    name: '',
-    department: '',
-    sem: ''
-  });
+const Add = ({person}) => {
+  /*  const [count,setCount]=useState(0);
+  let valueAdd=()=>{
+    setCount(count+1)
+  } */
+const [form,setForm]=useState(
+  {
+    fname:person.fname,
+    department:person.department,
+    semester:person.semester
+  }
+)
+  function valueCap (e){
+     // console.log(e)
+     setForm({...form,[e.target.name]:e.target.value})
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form Data:', formData);
-  };
-
+  }
+  let valueAdd=()=>{
+    console.log(form)
+  }
   return (
-    <Box
-      component="form"
-      sx={{ display: 'flex', flexDirection: 'column', width: '300px', gap: '16px' }}
-      onSubmit={handleSubmit}
-    >
-      <TextField
-        id="name"
-        name="name"
-        label="Name"
-        variant="filled"
-        value={formData.name}
-        onChange={handleChange}
-        InputProps={{ sx: { backgroundColor: 'white' } }}
-        InputLabelProps={{ sx: { color: 'black' } }}
-      />
-      <TextField
-        id="department"
-        name="department"
-        label="Department"
-        variant="filled"
-        value={formData.department}
-        onChange={handleChange}
-        InputProps={{ sx: { backgroundColor: 'white' } }}
-        InputLabelProps={{ sx: { color: 'black' } }}
-      />
-      <TextField
-        id="sem"
-        name="sem"
-        label="Semester"
-        variant="filled"
-        value={formData.sem}
-        onChange={handleChange}
-        InputProps={{ sx: { backgroundColor: 'white' } }}
-        InputLabelProps={{ sx: { color: 'black' } }}
-      />
-      <Button type="submit" variant="contained" color="primary">
-        Submit
-      </Button>
-    </Box>
+    <>
+      <Box
+        component="form"
+        sx={{
+          '& > :not(style)': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <Stack spacing={2} direction="column">
+          <TextField id="name-input" label="Name" variant="standard" name="fname" value={form.fname} onChange={valueCap}  />
+          <br />
+          <TextField id="department-input" label="Department" variant="standard"  name="department" value={form.department} onChange={valueCap}/>
+          <br />
+          <TextField id="semester-input" label="Semester" variant="standard"  name="semester" value={form.semester} onChange={valueCap}/>
+          <br />
+          <Button variant="contained" color='success' onClick={valueAdd}>Submit</Button>
+        </Stack>
+      </Box>
+    </>
   );
 }
 

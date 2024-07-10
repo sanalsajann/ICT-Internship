@@ -6,22 +6,25 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-function createData(Name,Department,Semester)
-     {
-    return {Name,Department,Semester};
-  }
   
   const rows = [
     {
-    Name:'Sanal',
-    Department:'Computer Science',
-    Semester:'S3'
-
+        Name:'Interstellar',
+        Category:'Sci-Fi',
+        Director:'Christopher Nolan',
+        ReleaseYear:'2014'
     },
     {
-      Name:'Aadit',
-      Department:'Electrical',
-      Semester:'S4'
+        Name:'The Pursuit of Happyness',
+        Category:'Drama',
+        Director:'Gabriele Muccino',
+        ReleaseYear:'2006'
+    },
+    {
+        Name:'La La Land',
+        Category:'Romance',
+        Director:'Damien Chazelle',
+        ReleaseYear:'2016'    
     }
   ];
   
@@ -32,8 +35,9 @@ function createData(Name,Department,Semester)
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
-              <TableCell>Department</TableCell>
-              <TableCell>Semester</TableCell>
+              <TableCell>Category</TableCell>
+              <TableCell>Director</TableCell>
+              <TableCell>Release Year</TableCell>
               
             </TableRow>
           </TableHead>
@@ -47,8 +51,9 @@ function createData(Name,Department,Semester)
                   {row.Name}
                 </TableCell>
                 
-                <TableCell >{row.Department}</TableCell>
-                <TableCell >{row.Semester}</TableCell>
+                <TableCell >{row.Category}</TableCell>
+                <TableCell >{row.Director}</TableCell>
+                <TableCell>{row.ReleaseYear}</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -56,5 +61,3 @@ function createData(Name,Department,Semester)
       </TableContainer>
     );
   }
-
-  
