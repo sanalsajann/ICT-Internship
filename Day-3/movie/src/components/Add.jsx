@@ -26,11 +26,14 @@ const Add = () => {
       component="form"
       sx={{
         '& > :not(style)': { m: 1, width: '25ch' },
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
       noValidate
       autoComplete="off"
     >
-      <Stack spacing={2} direction="column">
+      <Stack spacing={2} direction="column" alignItems="center">
         <TextField
           id="mname-input"
           label="Movie Name"
