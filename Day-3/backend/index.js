@@ -5,8 +5,10 @@ const movieModel=require('./model/movieData')
 require('./connection');
 //to fetch the movie data
 app.get('/movies',async(req,res)=>{
+    console.log('inside')
     try{
         const data=await movieModel.find();
+        console.log(data)
         res.send(data);
     } catch (error) {
         console.log(error);
