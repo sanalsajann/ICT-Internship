@@ -3,22 +3,23 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import axios from 'axios'
 
 const Add = () => {
   const [form, setForm] = useState({
-    mname: '',
+    movieName: '',
     category: '',
-    director: '',
-    releaseyear: '',
-    poster: ''
+    movieDirector: '',
+    releaseYear:'',
   });
 
-  const handleChange = (e) => {
+  function valueFetch(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {
+  const sendData = () => {
     console.log(form);
+    axios.post('http://localhost:4000/newmovie',form)
   };
 
   return (
@@ -35,51 +36,46 @@ const Add = () => {
     >
       <Stack spacing={2} direction="column" alignItems="center">
         <TextField
-          id="mname-input"
-          label="Movie Name"
+        required
+          id="outline-required"
+          label="Required - Movie Name"
           variant="standard"
-          name="mname"
-          value={form.mname}
-          onChange={handleChange}
+          name="movieName"
+          value={form.movieName}
+          onChange={valueFetch}
         />
         <br />
         <TextField
-          id="category-input"
-          label="Category"
+        required
+          id="outline-required"
+          label="Required - Director"
+          variant="standard"
+          name="movieDirector"
+          value={form.movieDirector}
+          onChange={valueFetch}
+        />
+        <br />
+        <TextField
+        required
+          id="outline-required"
+          label="Required - Category"
           variant="standard"
           name="category"
           value={form.category}
-          onChange={handleChange}
+          onChange={valueFetch}
         />
         <br />
         <TextField
-          id="director-input"
-          label="Director"
+        required
+          id="outline-required"
+          label="Required - Release Year"
           variant="standard"
-          name="director"
-          value={form.director}
-          onChange={handleChange}
+          name="releaseYear"
+          value={form.releaseYear}
+          onChange={valueFetch}
         />
         <br />
-        <TextField
-          id="releaseyear-input"
-          label="Release Year"
-          variant="standard"
-          name="releaseyear"
-          value={form.releaseyear}
-          onChange={handleChange}
-        />
-        <br />
-        <TextField
-          id="poster-input"
-          label="Poster URL"
-          variant="standard"
-          name="poster"
-          value={form.poster}
-          onChange={handleChange}
-        />
-        <br />
-        <Button variant="contained" color="success" onClick={handleSubmit}>
+        <Button variant="contained" color="success" onClick={sendData}>
           Add Movie
         </Button>
       </Stack>
